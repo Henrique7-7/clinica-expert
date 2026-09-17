@@ -1,3 +1,5 @@
+[backendfim.md](https://github.com/user-attachments/files/32340796/backendfim.md)
+
 # Back-End — Clínica Expert
 
 **Integrante:** Luis Henrique
@@ -21,7 +23,7 @@ Resumindo: o front-end mostra, o back-end decide.
 ## Principais responsabilidades
 
 - Criar as regras do sistema (o que pode e o que não pode)
-- Organizar o banco de dados
+- Trabalhar junto com o banco de dados para gravar e buscar as informações
 - Fazer a comunicação entre o banco e as telas do front-end
 - Validar as informações antes de salvar
 - Controlar quem pode fazer o quê no sistema
@@ -39,7 +41,7 @@ Resumindo: o front-end mostra, o back-end decide.
 
 ## O que eu entregaria no projeto
 
-- A estrutura do banco de dados (tabelas de pacientes, médicos, agendamentos e atendimentos)
+- A definição dos dados que o sistema precisa guardar, em conjunto com a área de banco de dados
 - As regras de agendamento implementadas
 - A API que conecta o sistema às telas
 - O controle de acesso por tipo de usuário
@@ -91,6 +93,8 @@ O sistema não deixa pular etapa. Não dá para ir de "agendado" direto para "co
 
 **Victor (Front-end)** — a gente precisa combinar quais informações cada tela envia e recebe. Se a tela espera um dado que a API não manda, não funciona.
 
+**Vinicius (Banco de Dados)** — é a área com quem eu trabalho mais de perto. Ele monta a estrutura das tabelas e eu escrevo o código que grava e busca essas informações. Se a estrutura do banco não previr, por exemplo, o horário de funcionamento da unidade, eu não consigo implementar a regra que impede agendamento fora do expediente.
+
 **João (Testes)** — eu preparo os dados de teste e ele verifica se as regras estão funcionando, tipo "tentar agendar em horário ocupado tem que dar erro".
 
 ## O que aconteceria sem esse papel
@@ -119,7 +123,9 @@ A lógica é começar pelo que sustenta o resto, depois resolver o problema maio
 
 ## Limitações e cuidados
 
-**Acúmulo de função.** Nossa equipe tem quatro pessoas e não tem ninguém só para banco de dados e segurança. Essas partes ficaram comigo. Dá para fazer nesse trabalho, mas num projeto real seria um risco, porque sobrecarrega uma pessoa só.
+**Segurança acumulada no back-end.** Nossa equipe tem cinco pessoas e não tem ninguém dedicado à segurança da informação. Essa parte ficou comigo. Dá para fazer nesse trabalho, mas num projeto real seria um risco, porque exige conhecimento específico de LGPD e proteção de dados de saúde.
+
+**Dependência entre back-end e banco de dados.** Como as duas áreas são muito próximas, qualquer mudança na estrutura das tabelas afeta meu código. Isso exige combinar bem as decisões com o Vinicius antes de implementar, senão um refaz o trabalho do outro.
 
 **Dados de saúde.** O sistema lida com informação sensível, então precisa de acesso restrito por tipo de usuário e senha protegida. Só quem realmente precisa da informação deve conseguir acessar.
 
